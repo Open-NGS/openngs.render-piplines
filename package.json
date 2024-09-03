@@ -1,0 +1,21 @@
+{
+	"name": "com.openngs.render-pipline",
+	"displayName": "OpenNGS Render Pipline",
+	"version": "0.3.0",
+	"description": "OpenNGS Render Pipline package",
+	"scripts": {
+		"test" : "script-content"
+	},
+	"author": {
+		"name": "EE GAMES",
+		"email": "ray@eegames.com",
+		"url": "https://www.openngs.com"
+	},
+	"license": "AGPL",
+	"keywords": [
+		"unity3d",
+		"unity3d-npm",
+		"openngs",
+    	"game"
+	]
+}
