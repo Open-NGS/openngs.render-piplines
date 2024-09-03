@@ -1,8 +1,8 @@
 {
-	"name": "com.openngs.render-pipline",
-	"displayName": "OpenNGS Render Pipline",
+	"name": "com.openngs.render-piplines",
+	"displayName": "OpenNGS Render Piplines",
 	"version": "0.3.0",
-	"description": "OpenNGS Render Pipline package",
+	"description": "OpenNGS Render Piplines package",
 	"scripts": {
 		"test" : "script-content"
 	},
