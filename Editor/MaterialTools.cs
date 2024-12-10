@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using System;
 using static UnityEditor.BaseShaderGUI;
 using System.Runtime.InteropServices;
+using UnityEngine.Rendering.HighDefinition;
 
 namespace OpenNGS.RenderPipline.Editor
 {
@@ -152,19 +153,16 @@ namespace OpenNGS.RenderPipline.Editor
                             UpgradeToNGS(mat, RenderPiplineType.URP, "NGS/Particles/Unlit");
                             break;
                         //case "HDRP/Lit":
-                        //    UpgradeToNGS(mat, RenderPiplineType.HDRP, "NGS-Lit");
+                        //    UpgradeToNGS(mat, RenderPiplineType.HDRP, "NGS/Lit");
                         //    break;
                         //case "HDRP/Unlit":
-                        //    UpgradeToNGS(mat, RenderPiplineType.HDRP, "NGS-Unlit");
+                        //    UpgradeToNGS(mat, RenderPiplineType.HDRP, "NGS/Unlit");
                         //    break;
                         case "Shader Graphs/NGS-Lit":
-                            UpgradeToNGS(mat, RenderPiplineType.NGS, "NGS-Lit");
+                            UpgradeToNGS(mat, RenderPiplineType.NGS, "NGS/Lit");
                             break;
                         case "Shader Graphs/NGS-Unlit":
-                            UpgradeToNGS(mat, RenderPiplineType.NGS, "NGS-Unlit");
-                            break;
-                        default:
-                            UpgradeToNGS(mat, RenderPiplineType.NGS, "NGS-Lit");
+                            UpgradeToNGS(mat, RenderPiplineType.NGS, "NGS/Unlit");
                             break;
                     }
                 }
@@ -194,12 +192,17 @@ namespace OpenNGS.RenderPipline.Editor
 
         private static void UpgradeToNGS(Material material, RenderPiplineType version, string name, SurfaceType surfaceType, BlendMode blendMode)
         {
+            Color emissionColor = Color.black;
+            float emissionintensity = 0;
+            List<string> keywords = material.shaderKeywords.ToList();
+            bool _EMISSION = material.IsKeywordEnabled("_EMISSION");
             if (material.HasProperty("_EmissionColor"))
             {
-                Color emissionColor = material.GetColor("_EmissionColor");
-                material.SetColor("_Emission_Color", emissionColor);
-
+                emissionColor = material.GetColor("_EmissionColor");
+                Debug.LogFormat("UpgradeToNGS>>_EMISSION:{0}, _EmissionColor:{1} Intensity:{2}", _EMISSION, emissionColor, emissionintensity);
+                emissionColor.ToLDR(out emissionColor, out emissionintensity);
             }
+            Debug.LogFormat("UpgradeToNGS>>_EMISSION:{0}, _EmissionColor:{1} Intensity:{2}", _EMISSION, emissionColor, emissionintensity);
             bool alphaTest = material.IsKeywordEnabled("_ALPHATEST_ON");
             if(material.HasProperty("_AlphaClip"))
             {
@@ -211,21 +214,34 @@ namespace OpenNGS.RenderPipline.Editor
                 float mask = material.GetFloat("_AlphaToMask");
                 Debug.LogFormat("alphaTest:{0}, _AlphaToMask:{1}", alphaTest, mask);
             }
-            material.shader = Shader.Find("Shader Graphs/" + name);
 
+            var mainTex = material.GetTexture("_MainTex");
+            material.shader = Shader.Find(name);
+            AssetDatabase.SaveAssetIfDirty(material);
             material.SetFloat("_SurfaceType", (float)surfaceType);
             material.SetFloat("_Blend", (float)blendMode);
             
 
-            if (material.HasProperty("_MainTex"))
-            {
-                material.SetTexture("_BaseMap", material.GetTexture("_MainTex"));
-            }
             if (material.HasProperty("_BaseMap"))
+            {
+                material.SetTexture("_BaseMap", mainTex);
+            }
+            else if (material.HasProperty("_BaseMap"))
             {
                 material.SetTexture("_BaseMap", material.GetTexture("_BaseMap"));
             }
 
+            if (_EMISSION)
+            {
+                material.shaderKeywords = material.shaderKeywords.Append("_EMISSION").ToArray();
+                material.EnableKeyword("_EMISSION");
+                material.SetFloat("_EMISSION", 1.0f);
+                material.SetColor("_Emission_Color", emissionColor * emissionintensity);
+            }
+            else
+            {
+                material.DisableKeyword("_EMISSION");
+            }
 
             if (alphaTest)
             {
@@ -249,6 +265,7 @@ namespace OpenNGS.RenderPipline.Editor
             }
 
             AssetDatabase.SaveAssetIfDirty(material);
+            Debug.LogFormat("UpgradeToNGS>>_EMISSION:{0}, _EmissionColor:{1} Intensity:{2}", _EMISSION, emissionColor, emissionintensity);
         }
     }
 }
