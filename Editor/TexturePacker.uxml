@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.openngs.render-piplines/Editor/TexturePacker.uss?fileID=7433441132597879392&amp;guid=cb20ab033e527384989303b8840f3324&amp;type=3#TexturePacker" />
+    <ui:Label text="Hello World! From UXML" />
+    <ui:GroupBox>
+        <uie:ObjectField name="TextureR" label="R" type="UnityEngine.Texture, UnityEngine.CoreModule" allow-scene-objects="false" />
+        <uie:MaskField name="MaskR" label="Mask" choices="RGB,A" value="1" />
+    </ui:GroupBox>
+    <ui:GroupBox>
+        <uie:ObjectField name="TextureG" label="G" type="UnityEngine.Texture, UnityEngine.CoreModule" allow-scene-objects="false" />
+        <uie:MaskField name="MaskG" label="Mask" choices="RGB,A" value="1"  />
+    </ui:GroupBox>
+    <ui:GroupBox>
+        <uie:ObjectField name="TextureB" label="B" type="UnityEngine.Texture, UnityEngine.CoreModule" allow-scene-objects="false" />
+        <uie:MaskField name="MaskB" label="Mask" choices="RGB,A" value="1"  />
+    </ui:GroupBox>
+    <ui:GroupBox>
+        <uie:ObjectField name="TextureA" label="A" type="UnityEngine.Texture, UnityEngine.CoreModule" allow-scene-objects="false"/>
+        <uie:MaskField name="MaskA" label="Mask" choices="RGB,A" value="1" />
+    </ui:GroupBox>
+    <uie:ObjectField name="TextureTarget" label="Target" type="UnityEngine.Texture, UnityEngine.CoreModule" allow-scene-objects="false"/>
+    <ui:Button name="Pack" text="PACK" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+</ui:UXML>

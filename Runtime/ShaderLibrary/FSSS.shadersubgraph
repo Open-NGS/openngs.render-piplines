@@ -481,10 +481,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -638.0000610351563,
-            "y": -1118.0001220703125,
-            "width": 130.0,
-            "height": 118.00006103515625
+            "x": -517.0,
+            "y": -1345.0001220703125,
+            "width": 208.0,
+            "height": 302.0001220703125
         }
     },
     "m_Slots": [
@@ -504,7 +504,7 @@
         "x"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -518,8 +518,8 @@
     "m_ObjectId": "07c5ba3e73894bb085c3f115d514d205",
     "m_Title": "Back scatter",
     "m_Position": {
-        "x": -1550.0003662109375,
-        "y": 294.0
+        "x": -1931.0001220703125,
+        "y": -666.9999389648438
     }
 }
 
@@ -687,7 +687,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 1.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -1209,8 +1209,8 @@
     "m_ObjectId": "7f217bdd9ee14a3ea142d9b7ecbe9640",
     "m_Title": "Thickness",
     "m_Position": {
-        "x": -868.0000610351563,
-        "y": -1177.0001220703125
+        "x": -747.0000610351563,
+        "y": -1404.0001220703125
     }
 }
 
@@ -1538,7 +1538,7 @@
         "x"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -1583,8 +1583,8 @@
         "m_Position": {
             "serializedVersion": "2",
             "x": -1281.000244140625,
-            "y": -473.0,
-            "width": 141.0001220703125,
+            "y": -472.9999694824219,
+            "width": 141.0,
             "height": 33.999969482421878
         }
     },
@@ -1890,7 +1890,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 0.5,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -1977,7 +1977,7 @@
     "m_Title": "Get Main Light from scene",
     "m_Position": {
         "x": -2612.0,
-        "y": -1188.666748046875
+        "y": -1189.0
     }
 }
 
@@ -2026,9 +2026,9 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 0.0,
-        "g": 0.0,
-        "b": 0.0,
+        "r": 1.0,
+        "g": 0.4292452931404114,
+        "b": 0.4292452931404114,
         "a": 0.0
     },
     "isMainColor": false,
@@ -2047,10 +2047,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -843.333251953125,
-            "y": -1118.0,
-            "width": 129.333251953125,
-            "height": 36.0
+            "x": -722.0,
+            "y": -1345.0001220703125,
+            "width": 127.99993896484375,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -2189,10 +2189,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2358.666748046875,
-            "y": -812.6666870117188,
-            "width": 209.33349609375,
-            "height": 305.33331298828127
+            "x": -2359.0,
+            "y": -815.0,
+            "width": 208.0,
+            "height": 303.0
         }
     },
     "m_Slots": [
@@ -2251,7 +2251,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2
+    "m_Space": 1
 }
 
 {
@@ -2416,7 +2416,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 1.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -2604,9 +2604,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -439.00006103515627,
-            "y": -1118.0001220703125,
-            "width": 104.00006103515625,
+            "x": -230.00003051757813,
+            "y": -1118.0,
+            "width": 104.00004577636719,
             "height": 77.0
         }
     },
