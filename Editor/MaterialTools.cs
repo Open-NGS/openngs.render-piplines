@@ -149,6 +149,9 @@ namespace OpenNGS.RenderPipline.Editor
                         case "Mobile/Particles/Alpha Blended":
                             UpgradeToNGS(mat, RenderPiplineType.URP, "NGS/Particles/Unlit", SurfaceType.Transparent, BlendMode.Alpha);
                             break;
+                        case "Particles/Standard Surface":
+                            UpgradeToNGS(mat, RenderPiplineType.URP, "NGS/Particles/Lit", SurfaceType.Transparent, BlendMode.Additive);
+                            break;
                         case "Universal Render Pipeline/Particles/Unlit":
                             UpgradeToNGS(mat, RenderPiplineType.URP, "NGS/Particles/Unlit");
                             break;
